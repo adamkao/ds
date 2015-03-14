@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=360, initial-scale=1, user-scalable=no">
+	<title>Dominant Species</title>
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+	<link rel='stylesheet' type='text/css' href='ds.css' />
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	<link rel='stylesheet' type='text/css' href='ds.css' />
+	<script type='text/javascript' src='ds.js'></script>
+</head>
+<body>
+	<div id='main' class="container">
+		<div id='panner'>
+			<table>
+				<tr>
+					<td>
+						<textarea id='timestamp' cols='18' rows='1' readonly='readonly'></textarea>
+						<input id='gameid' type='text' size='2'>
+						<table class='screen'>
+							<tr>
+								<td><table id='players'>
+									<tr>
+										<td>Mammal</td>
+										<td>
+											<input id='play1' class='play' type='checkbox' onchange='toggleplay( "1" )' checked>
+											<input id='1' type='text' size='10'>
+											<input id='win1' class='win' type='checkbox' onchange='togglewin( "#1win" )' disabled>
+										</td>
+									</tr>
+									<tr>
+										<td>Reptile</td>
+										<td>
+											<input id='play2' class='play' type='checkbox' onchange='toggleplay( "2" )' checked>
+											<input id='2' type='text' size='10'>
+											<input id='win2' class='win' type='checkbox' onchange='togglewin( "#2win" )' disabled>
+										</td>
+									</tr>
+									<tr>
+										<td>Bird</td>
+										<td>
+											<input id='play3' class='play' type='checkbox' onchange='toggleplay( "3" )' checked>
+											<input id='3' type='text' size='10'>
+											<input id='win3' class='win' type='checkbox' onchange='togglewin( "#3win" )' disabled>
+										</td>
+									</tr>
+									<tr>
+										<td>Amphibian</td>
+										<td>
+											<input id='play4' class='play' type='checkbox' onchange='toggleplay( "4" )' checked>
+											<input id='4' type='text' size='10'>
+											<input id='win4' class='win' type='checkbox' onchange='togglewin( "#4win" )' disabled>
+										</td>
+									</tr>
+									<tr>
+										<td>Arachnid</td>
+										<td>
+											<input id='play5' class='play' type='checkbox' onchange='toggleplay( "5" )' checked>
+											<input id='5' type='text' size='10'>
+											<input id='win5' class='win' type='checkbox' onchange='togglewin( "#5win" )' disabled>
+										</td>
+									</tr>
+									<tr>
+										<td>Insect</td>
+										<td>
+											<input id='play6' class='play' type='checkbox' onchange='toggleplay( "6" )' checked>
+											<input id='6' type='text' size='10'>
+											<input id='win6' class='win' type='checkbox' onchange='togglewin( "#6win" )' disabled>
+										</td>
+									</tr>
+								</table></td>
+								<td><button class='swipe' onclick='swiperight()'>></button></td>
+							</tr>
+						</table>
+						<button id='creategame'>Create Game</button>
+						<button id='setwinner' onclick='setwinner()' disabled>Set Winners</button>
+					</td>
+					<td>
+						<table class='screen'>
+							<tr>
+							</tr>
+							<tr>
+								<td><button class='swipe' onclick='swipeleft()'><</button></td>
+								<td><textarea id='output' cols='10' rows='7' readonly='readonly'></textarea></td>
+								<td><table id='players'>
+									<tr><td>
+										<input id='statsplayer' type='text' size='10'>
+									</td></tr>
+									<tr><td>
+										<input id='statsand' type='checkbox' onchange='toggleand()'>and
+									</td></tr>
+								</table></td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</body>
+	</html>

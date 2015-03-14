@@ -1,0 +1,35 @@
+#main {
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	width: 360px;
+	overflow: hidden;
+}
+#panner {
+	position: relative;
+}
+#gameid {
+	text-align: right;
+}
+.swipe {
+	height:120px;
+}
+.screen {
+	width: 340px;
+}
+td {
+	padding-right: 15px;
+	text-align: right;
+	vertical-align: middle;
+}
+textarea {
+	resize: none;
+	text-align: center;
+	vertical-align: middle;
+}
+input {
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-left-width: 1px;
+	border-bottom-width: 0px;
+}
