@@ -10,10 +10,6 @@ function toggleplay( id )
 	}
 }
 
-function togglewin( id )
-{
-}
-
 function creategame( players ) {
 	$.post('api.php', {
 		action: 'creategame',
@@ -33,7 +29,7 @@ function creategame( players ) {
 			}
 		}
 		$( '#creategame' ).prop( 'disabled', true );
-		$( '#setwinners' ).prop( 'disabled', false );
+		$( '#setwinner' ).prop( 'disabled', false );
 	}).fail( function() {
 		alert( "POST creategame failed." );
 	});
@@ -58,13 +54,16 @@ function setwinner() {
 		winner: winner,
 		winnerspecies: winnerspecies
 	}, function( data ) {
+		$( '.play' ).prop( 'disabled', false );
+		$( '.play' ).prop( 'checked', true );
+		$( '.name' ).prop( 'disabled', false );
+		$( '.name' ).val( '' );
+		$( '.win' ).prop( 'disabled', true );
+		$( '.win' ).prop( 'checked', false );
 		$( '#creategame' ).prop( 'disabled', false );
 		$( '#setwinner' ).prop( 'disabled', true );
-		$( '.win' ).prop( 'disabled', true );
-		$( '.win' ).removeAttr( 'checked' );
-		$( '.play' ).prop( 'disabled', false );
 	}).fail( function() {
-		alert( "POST setwinners failed." );
+		alert( "POST setwinner failed." );
 	});
 }
 
@@ -81,9 +80,13 @@ $( document ).ready( function() {
 	$( '#creategame' ).click( function( e ) {
 		var i = 0, player = '', players = [];
 		gameid = 0;
-		for (i = 1; i < 6; i++) {
+		for (i = 1; i <= 6; i++) {
 			if ($( '#play' + i ).is( ':checked' )) {
 				player = $( '#' + i ).val();
+				if (player === '') {
+					alert( 'Blank Player Name' );
+					return;
+				}
 			} else {
 				player = 'noplayer';
 			}

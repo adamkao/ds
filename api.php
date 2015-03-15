@@ -7,7 +7,7 @@ if (isset($_POST['action']) and $_POST['action'] == 'creategame')
 {
   $pcount = 0;
   $parray = (isset( $_POST['players']) ) ? $_POST['players'] : NULL;
-  for ($i = 1; $i < 6; $i++) {
+  for ($i = 0; $i < 6; $i++) {
     if ($parray[$i] == 'noplayer') {
       $parray[$i] = NULL;      
     } else {
@@ -18,7 +18,7 @@ if (isset($_POST['action']) and $_POST['action'] == 'creategame')
   $DBH = new PDO('mysql:host=localhost;dbname=prod', $dbuser, $pass);
   $stmt = $DBH->prepare( 'INSERT INTO dsgamesrecord '
     . '(mammal, reptile, bird, amphibian, arachnid, insect, players) '
-    . 'VALUES (?, ?, ?, ?, ?, ? ?);' );
+    . 'VALUES (?, ?, ?, ?, ?, ?, ?);' );
   if (!$stmt->execute( array( $parray[0], $parray[1], $parray[2], $parray[3], $parray[4], $parray[5], $pcount ) )) {
     exit ('INSERT failed');
   }
